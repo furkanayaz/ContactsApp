@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ChooseDbVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
