@@ -8,6 +8,7 @@
 import UIKit
 
 class EditContactVC: UIViewController {
+    var chosenContact: Contact? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
