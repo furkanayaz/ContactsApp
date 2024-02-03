@@ -82,7 +82,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YWj-Zk-Ykk">
-                                                    <rect key="frame" x="124.33333333333331" y="0.0" width="144.33333333333337" height="38.666666666666664"/>
+                                                    <rect key="frame" x="124.33333333333333" y="0.0" width="144.33333333333337" height="38.666666666666664"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Furkan Ayaz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXm-Rt-CZ2">
                                                             <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="20.333333333333332"/>
@@ -241,6 +241,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Contact" id="u3y-hw-FAj"/>
+                    <connections>
+                        <outlet property="tfFullName" destination="6bL-rS-gYQ" id="vpp-To-kQJ"/>
+                        <outlet property="tfPhoneNumber" destination="Vi3-lX-drj" id="fiL-9e-dvO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chv-L2-vrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

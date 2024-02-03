@@ -8,6 +8,9 @@
 import UIKit
 import CoreData
 
+let appDeleage = UIApplication.shared.delegate as! AppDelegate
+let context = appDeleage.persistentContainer.viewContext
+
 class ContactsVC: UIViewController {
     @IBOutlet weak var contactsView: UITableView!
     
@@ -17,14 +20,13 @@ class ContactsVC: UIViewController {
     
     var isSearch: Bool = false
     
-    var contacts: [Contact] = [
-        Contact(fullName: "Furkan Ayaz", phoneNumber: "+90 553 975 99 57"),
-        Contact(fullName: "Emre Altunbilek", phoneNumber: "+90 549 827 65 13"),
-        Contact(fullName: "Kasım Adalan", phoneNumber: "+90 546 785 14 53"),
-        Contact(fullName: "Atıl Samancıoğlu", phoneNumber: "+90 536 425 88 45")
-    ]
+    var contacts: [ContactModel] = []
     
-    var filteredContacts: [Contact] = []
+    var filteredContacts: [ContactModel] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchContacts), name: NSNotification.Name(rawValue: "newContact"), object: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +34,46 @@ class ContactsVC: UIViewController {
         contactsView.delegate = self
         contactsView.dataSource = self
         searchBar.delegate = self
+        
+        fetchContacts()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "contactsToEditContact" {
-            (segue.destination as? EditContactVC)?.chosenContact = sender as? Contact
+            (segue.destination as? EditContactVC)?.chosenContact = sender as? ContactModel
+        }
+    }
+    
+    @objc func fetchContacts() {
+        contacts.removeAll(keepingCapacity: true)
+        
+        let request = Contact.fetchRequest()
+        let alphabetSorter = NSSortDescriptor(key: #keyPath(Contact.fullname), ascending: true)
+        request.sortDescriptors = [alphabetSorter]
+        
+        do {
+            let results = try context.fetch(request) as [NSManagedObject]
+            for result in results {
+                let fullName: String? = result.value(forKey: "fullname") as? String
+                let phoneNumber: String? = result.value(forKey: "phonenumber") as? String
+                contacts.append(ContactModel(fullName: fullName, phoneNumber: phoneNumber))
+            }
+            self.contactsView.reloadData()
+        }catch {
+            print(error.localizedDescription)
         }
     }
     
     @IBAction func addContact(_ sender: Any) {
         self.performSegue(withIdentifier: "contactsToAddContact", sender: nil)
     }
-    
-
 }
 
 extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
         
-        let contactAtPosition: Contact = if self.isSearch { self.filteredContacts[indexPath.row] } else { self.contacts[indexPath.row] }
+        let contactAtPosition: ContactModel = if self.isSearch { self.filteredContacts[indexPath.row] } else { self.contacts[indexPath.row] }
         
         cell.fullName.text = contactAtPosition.fullName
         cell.phoneNumber.text = contactAtPosition.phoneNumber
@@ -72,7 +94,7 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
         
     }*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chosenContact: Contact = contacts[indexPath.row]
+        let chosenContact: ContactModel = contacts[indexPath.row]
         self.performSegue(withIdentifier: "contactsToEditContact", sender: chosenContact)
     }
 }
@@ -83,7 +105,7 @@ extension ContactsVC: UISearchBarDelegate {
         
         if self.isSearch {
             filteredContacts = contacts.filter({
-                $0.fullName.lowercased().contains(searchText.lowercased()) || $0.phoneNumber.contains(searchText)
+                $0.fullName!.lowercased().contains(searchText.lowercased()) || $0.phoneNumber!.contains(searchText)
             })
         }
         

@@ -18,7 +18,7 @@
 		3F1D91432B6AE00A0034E817 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91422B6AE00A0034E817 /* ContactsVC.swift */; };
 		3F1D91452B6AE0190034E817 /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91442B6AE0190034E817 /* AddContactVC.swift */; };
 		3F1D91472B6AE0280034E817 /* EditContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91462B6AE0280034E817 /* EditContactVC.swift */; };
-		3FF5FD352B6C3AD000C5460C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5FD342B6C3AD000C5460C /* Contact.swift */; };
+		3FDB10F82B6E5FEA004F8706 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB10F72B6E5FEA004F8706 /* ContactModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		3F1D91422B6AE00A0034E817 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		3F1D91442B6AE0190034E817 /* AddContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
 		3F1D91462B6AE0280034E817 /* EditContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactVC.swift; sourceTree = "<group>"; };
-		3FF5FD342B6C3AD000C5460C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		3FDB10F72B6E5FEA004F8706 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 				3F1D91422B6AE00A0034E817 /* ContactsVC.swift */,
 				3F1D91442B6AE0190034E817 /* AddContactVC.swift */,
 				3F1D91462B6AE0280034E817 /* EditContactVC.swift */,
-				3FF5FD342B6C3AD000C5460C /* Contact.swift */,
+				3FDB10F72B6E5FEA004F8706 /* ContactModel.swift */,
 			);
 			path = ContactsApp;
 			sourceTree = "<group>";
@@ -156,9 +156,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF5FD352B6C3AD000C5460C /* Contact.swift in Sources */,
 				3F1D91322B6AD6BC0034E817 /* ContactsApp.xcdatamodeld in Sources */,
 				3F1D91472B6AE0280034E817 /* EditContactVC.swift in Sources */,
+				3FDB10F82B6E5FEA004F8706 /* ContactModel.swift in Sources */,
 				3F1D91452B6AE0190034E817 /* AddContactVC.swift in Sources */,
 				3F1D91412B6ADD190034E817 /* ContactTableViewCell.swift in Sources */,
 				3F1D912C2B6AD6BC0034E817 /* ChooseDbVC.swift in Sources */,
