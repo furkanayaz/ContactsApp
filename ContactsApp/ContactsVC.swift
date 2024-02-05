@@ -86,12 +86,11 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             self.contacts.count
         }
     }
-    /*func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-    }*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chosenContact: Contact = contacts[indexPath.row]
         self.performSegue(withIdentifier: "contactsToEditContact", sender: chosenContact)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
