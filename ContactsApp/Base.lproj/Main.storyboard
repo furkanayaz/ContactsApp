@@ -8,53 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Choose Database-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ChooseDbVC" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xq-iy-Lvh">
-                                <rect key="frame" x="16" y="469" width="361" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="CoreData"/>
-                                <connections>
-                                    <action selector="chooseCoreData" destination="BYZ-38-t0r" eventType="touchUpInside" id="vRN-n6-VH1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXw-vj-SxX">
-                                <rect key="frame" x="16" y="347" width="361" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SQLite"/>
-                                <connections>
-                                    <action selector="chooseSqlite" destination="BYZ-38-t0r" eventType="touchUpInside" id="m82-dq-OtX"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="FXw-vj-SxX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="244" id="Nry-Lb-0ZZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FXw-vj-SxX" secondAttribute="trailing" constant="16" id="QBE-wX-Fvn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Xq-iy-Lvh" secondAttribute="bottom" constant="314" id="a4z-lm-agL"/>
-                            <constraint firstItem="FXw-vj-SxX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="exE-s5-MpR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Xq-iy-Lvh" secondAttribute="trailing" constant="16" id="l4A-g9-KVy"/>
-                            <constraint firstItem="2Xq-iy-Lvh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="lQI-ux-8Fk"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Choose Database" id="Afj-lx-hKg">
-                        <barButtonItem key="backBarButtonItem" title="Choosing" id="P63-Ve-WkJ"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="ZEk-c5-Fzc" kind="show" identifier="chooseDbToContacts" id="zVe-eE-oBm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="999" y="4"/>
-        </scene>
         <!--Contacts-->
         <scene sceneID="Wp2-UG-Vmu">
             <objects>
@@ -189,6 +142,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Contact" id="7si-nX-uHj"/>
+                    <connections>
+                        <outlet property="tfFullName" destination="3Tv-Eb-Wr6" id="bSl-Mo-nfE"/>
+                        <outlet property="tfPhoneNumber" destination="0J7-Ti-IWd" id="z0f-7U-ENw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5C3-xl-loM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,12 +218,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="r6Y-Ul-CfW"/>
+                        <segue destination="ZEk-c5-Fzc" kind="relationship" relationship="rootViewController" id="q8m-Op-1w2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaZ-AN-Qms" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90.839694656488547" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1062" y="4"/>
         </scene>
     </scenes>
     <resources>

@@ -33,7 +33,7 @@ class AddContactVC: UIViewController {
         contact.phonenumber = phoneNumber
         
         appDeleage.saveContext()
-        NotificationCenter.default.post(name: NSNotification.Name.init("newContact"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.init("contact"), object: nil)
         self.navigationController?.popViewController(animated: true)
     }
     

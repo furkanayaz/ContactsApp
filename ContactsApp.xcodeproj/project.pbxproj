@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F1D91282B6AD6BC0034E817 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91272B6AD6BC0034E817 /* AppDelegate.swift */; };
 		3F1D912A2B6AD6BC0034E817 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91292B6AD6BC0034E817 /* SceneDelegate.swift */; };
-		3F1D912C2B6AD6BC0034E817 /* ChooseDbVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D912B2B6AD6BC0034E817 /* ChooseDbVC.swift */; };
 		3F1D912F2B6AD6BC0034E817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D912D2B6AD6BC0034E817 /* Main.storyboard */; };
 		3F1D91322B6AD6BC0034E817 /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91302B6AD6BC0034E817 /* ContactsApp.xcdatamodeld */; };
 		3F1D91342B6AD6C60034E817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D91332B6AD6C60034E817 /* Assets.xcassets */; };
@@ -18,14 +17,12 @@
 		3F1D91432B6AE00A0034E817 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91422B6AE00A0034E817 /* ContactsVC.swift */; };
 		3F1D91452B6AE0190034E817 /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91442B6AE0190034E817 /* AddContactVC.swift */; };
 		3F1D91472B6AE0280034E817 /* EditContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D91462B6AE0280034E817 /* EditContactVC.swift */; };
-		3FDB10F82B6E5FEA004F8706 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB10F72B6E5FEA004F8706 /* ContactModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F1D91242B6AD6BC0034E817 /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1D91272B6AD6BC0034E817 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F1D91292B6AD6BC0034E817 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F1D912B2B6AD6BC0034E817 /* ChooseDbVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDbVC.swift; sourceTree = "<group>"; };
 		3F1D912E2B6AD6BC0034E817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F1D91312B6AD6BC0034E817 /* ContactsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactsApp.xcdatamodel; sourceTree = "<group>"; };
 		3F1D91332B6AD6C60034E817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,7 +32,6 @@
 		3F1D91422B6AE00A0034E817 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		3F1D91442B6AE0190034E817 /* AddContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
 		3F1D91462B6AE0280034E817 /* EditContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactVC.swift; sourceTree = "<group>"; };
-		3FDB10F72B6E5FEA004F8706 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +66,6 @@
 			children = (
 				3F1D91272B6AD6BC0034E817 /* AppDelegate.swift */,
 				3F1D91292B6AD6BC0034E817 /* SceneDelegate.swift */,
-				3F1D912B2B6AD6BC0034E817 /* ChooseDbVC.swift */,
 				3F1D912D2B6AD6BC0034E817 /* Main.storyboard */,
 				3F1D91402B6ADD190034E817 /* ContactTableViewCell.swift */,
 				3F1D91332B6AD6C60034E817 /* Assets.xcassets */,
@@ -80,7 +75,6 @@
 				3F1D91422B6AE00A0034E817 /* ContactsVC.swift */,
 				3F1D91442B6AE0190034E817 /* AddContactVC.swift */,
 				3F1D91462B6AE0280034E817 /* EditContactVC.swift */,
-				3FDB10F72B6E5FEA004F8706 /* ContactModel.swift */,
 			);
 			path = ContactsApp;
 			sourceTree = "<group>";
@@ -158,10 +152,8 @@
 			files = (
 				3F1D91322B6AD6BC0034E817 /* ContactsApp.xcdatamodeld in Sources */,
 				3F1D91472B6AE0280034E817 /* EditContactVC.swift in Sources */,
-				3FDB10F82B6E5FEA004F8706 /* ContactModel.swift in Sources */,
 				3F1D91452B6AE0190034E817 /* AddContactVC.swift in Sources */,
 				3F1D91412B6ADD190034E817 /* ContactTableViewCell.swift in Sources */,
-				3F1D912C2B6AD6BC0034E817 /* ChooseDbVC.swift in Sources */,
 				3F1D91282B6AD6BC0034E817 /* AppDelegate.swift in Sources */,
 				3F1D912A2B6AD6BC0034E817 /* SceneDelegate.swift in Sources */,
 				3F1D91432B6AE00A0034E817 /* ContactsVC.swift in Sources */,

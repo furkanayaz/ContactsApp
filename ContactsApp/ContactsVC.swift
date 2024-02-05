@@ -15,17 +15,15 @@ class ContactsVC: UIViewController {
     @IBOutlet weak var contactsView: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    var whichDb: Bool? = nil
-    
+        
     var isSearch: Bool = false
     
-    var contacts: [ContactModel] = []
+    var contacts: [Contact] = []
     
-    var filteredContacts: [ContactModel] = []
+    var filteredContacts: [Contact] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchContacts), name: NSNotification.Name(rawValue: "newContact"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchContacts), name: NSNotification.Name(rawValue: "contact"), object: nil)
     }
 
     override func viewDidLoad() {
@@ -40,7 +38,7 @@ class ContactsVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "contactsToEditContact" {
-            (segue.destination as? EditContactVC)?.chosenContact = sender as? ContactModel
+            (segue.destination as? EditContactVC)?.chosenContact = sender as? Contact
         }
     }
     
@@ -54,9 +52,7 @@ class ContactsVC: UIViewController {
         do {
             let results = try context.fetch(request) as [NSManagedObject]
             for result in results {
-                let fullName: String? = result.value(forKey: "fullname") as? String
-                let phoneNumber: String? = result.value(forKey: "phonenumber") as? String
-                contacts.append(ContactModel(fullName: fullName, phoneNumber: phoneNumber))
+                contacts.append(result as! Contact)
             }
             self.contactsView.reloadData()
         }catch {
@@ -73,10 +69,10 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
         
-        let contactAtPosition: ContactModel = if self.isSearch { self.filteredContacts[indexPath.row] } else { self.contacts[indexPath.row] }
+        let contactAtPosition: Contact = if self.isSearch { self.filteredContacts[indexPath.row] } else { self.contacts[indexPath.row] }
         
-        cell.fullName.text = contactAtPosition.fullName
-        cell.phoneNumber.text = contactAtPosition.phoneNumber
+        cell.fullName.text = contactAtPosition.fullname
+        cell.phoneNumber.text = contactAtPosition.phonenumber
         
         return cell
     }
@@ -94,7 +90,7 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
         
     }*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chosenContact: ContactModel = contacts[indexPath.row]
+        let chosenContact: Contact = contacts[indexPath.row]
         self.performSegue(withIdentifier: "contactsToEditContact", sender: chosenContact)
     }
 }
@@ -105,7 +101,7 @@ extension ContactsVC: UISearchBarDelegate {
         
         if self.isSearch {
             filteredContacts = contacts.filter({
-                $0.fullName!.lowercased().contains(searchText.lowercased()) || $0.phoneNumber!.contains(searchText)
+                $0.fullname?.lowercased().contains(searchText.lowercased()) ?? false || $0.phonenumber?.lowercased().contains(searchText.lowercased()) ?? false
             })
         }
         

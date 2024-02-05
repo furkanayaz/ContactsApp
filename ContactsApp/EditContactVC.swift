@@ -8,15 +8,26 @@
 import UIKit
 
 class EditContactVC: UIViewController {
-    var chosenContact: ContactModel? = nil
+    @IBOutlet weak var tfFullName: UITextField!
+    @IBOutlet weak var tfPhoneNumber: UITextField!
+    
+    var chosenContact: Contact? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tfFullName.text = chosenContact?.fullname
+        tfPhoneNumber.text = chosenContact?.phonenumber
     }
     
     @IBAction func saveContact() {
+        chosenContact?.fullname = tfFullName.text
+        chosenContact?.phonenumber = tfPhoneNumber.text
+        
+        appDeleage.saveContext()
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "contact"), object: nil)
+
         self.navigationController?.popViewController(animated: true)
     }
 
